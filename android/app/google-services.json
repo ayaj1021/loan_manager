@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "300337635091",
+    "project_id": "loan-manager-6257e",
+    "storage_bucket": "loan-manager-6257e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:300337635091:android:e32c231fe9c5c329b984e6",
+        "android_client_info": {
+          "package_name": "com.example.loan_manager"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCVD-bWhzgRG3Gvajv4GW_mMzS9LkWFHjY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
