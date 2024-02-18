@@ -1,16 +1,11 @@
 # loan_manager
 
-A new Flutter project.
+This is a loan managing app that allows a user to track their loans expenses.
 
-## Getting Started
+A user can track loans that he gives out and loans that he receives.
 
-This project is a starting point for a Flutter application.
+This project allows a user to mark a loan as complete and also delete a loan
 
-A few resources to get you started if this is your first Flutter project:
+This project uses firebase as the backend service.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Also a user gets to upload a document that might be needed for the loan 
