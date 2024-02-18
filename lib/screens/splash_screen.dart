@@ -1,8 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:loan_manager/config/constants.dart';
-import 'package:loan_manager/styles/themes.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -25,10 +23,30 @@ class _SplashScreenState extends State<SplashScreen> {
             child: Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        const Icon(Icons.money, size: 120),
-        Text(
-          appName,
-          style: AppTheme.headerStyle(),
+        Image.asset(
+          'assets/images/loan_app_logo.png',
+          scale: 6,
+        ),
+        RichText(
+          text: const TextSpan(
+              text: 'EASY, FAST, AND ',
+              style: TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+                color: Color(0xFF263238),
+              ),
+              children: [
+                TextSpan(
+                  text: 'TRUSTED',
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                    color: Color(0xFF8EDFEB),
+                  ),
+                )
+              ]),
+          // appName,
+          // style: AppTheme.headerStyle(),
         ),
       ],
     )));
@@ -36,11 +54,11 @@ class _SplashScreenState extends State<SplashScreen> {
 
   void _navigate() {
     Future.delayed(const Duration(seconds: 3), () {
-     if(FirebaseAuth.instance.currentUser != null){
-       context.go('/loan_dashboard_screen');
-     }else{
-      context.go('/register_screen');
-     }
+      if (FirebaseAuth.instance.currentUser != null) {
+        context.go('/loan_dashboard_screen');
+      } else {
+        context.go('/register_screen');
+      }
     });
   }
 }

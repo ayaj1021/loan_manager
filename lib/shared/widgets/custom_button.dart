@@ -3,8 +3,12 @@ import 'package:loan_manager/styles/colors.dart';
 import 'package:loan_manager/styles/themes.dart';
 
 class CustomButton extends StatelessWidget {
-  const CustomButton(
-      {super.key, this.text = 'Continue', this.width, required this.onPressed});
+  const CustomButton({
+    super.key,
+    this.text = 'Continue',
+    this.width,
+    required this.onPressed,
+  });
 
   final String text;
   final double? width;

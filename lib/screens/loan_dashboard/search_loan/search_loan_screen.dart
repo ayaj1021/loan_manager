@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_text_form_field/flutter_text_form_field.dart';
 import 'package:go_router/go_router.dart';
 import 'package:loan_manager/config/extension.dart';
 import 'package:loan_manager/enums/enums.dart';
@@ -35,11 +34,27 @@ class _SearchLoanScreenState extends State<SearchLoanScreen> {
             padding: const EdgeInsets.all(20),
             child: Column(
               children: [
-                CustomTextField(
-                  stateModel.searchLoanQueryController,
-                  hint: 'Enter loan name',
-                  password: false,
-                  border: Border.all(color: greyColor),
+                Container(
+                  alignment: Alignment.center,
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                  height: 48,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8),
+                    border: Border.all(color: primaryColor),
+                  ),
+                  child: TextField(
+                    controller: stateModel.searchLoanQueryController,
+                    onSubmitted: (value) {
+                      if (value.isNotEmpty) {
+                        stateModel.searchLoan();
+                      }
+                    },
+                    decoration: const InputDecoration(
+                      border: InputBorder.none,
+                      hintText: 'Enter loan name',
+                      // border: Border.all(color: greyColor),
+                    ),
+                  ),
                 ),
                 20.height(),
                 if (stateModel.searchedLoan == null)

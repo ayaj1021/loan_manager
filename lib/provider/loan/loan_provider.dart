@@ -197,11 +197,12 @@ class LoanProviderImpl extends ChangeNotifier implements LoanProviderUseCase {
     try {
       final result = _loans.where((element) => element.loanName
           .toLowerCase()
-          .contains(searchLoanQueryController.text.toLowerCase()));
+          .contains(searchLoanQueryController.text.trim().toLowerCase()));
 
       _searchedLoan = result.toList();
 
       _viewState = ViewState.Success;
+      searchLoanQueryController.clear();
       _updateState();
     } on SocketException catch (_) {
       _viewState = ViewState.Error;

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:loan_manager/config/extension.dart';
+import 'package:loan_manager/styles/colors.dart';
 import 'package:loan_manager/styles/themes.dart';
 
 class LoanViewDetailsCard extends StatelessWidget {
@@ -10,20 +11,33 @@ class LoanViewDetailsCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          headerText,
-          style: AppTheme.headerStyle(),
-        ),
-        8.height(),
-        Text(
-          titleText,
-          style: AppTheme.titleStyle(),
-        ),
-        25.height(),
-      ],
+    return Container(
+      alignment: Alignment.center,
+      padding: const EdgeInsets.symmetric(
+        horizontal: 20,
+      ),
+      height: 48,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10),
+        color: const Color(0xFFF4F4F4),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            headerText,
+            style: AppTheme.subTitleStyle(color: primaryColor).copyWith(
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          8.height(),
+          Text(
+            titleText,
+            style: AppTheme.subTitleStyle(color: const Color(0xFF001A4D)),
+          ),
+        ],
+      ),
     );
   }
 }

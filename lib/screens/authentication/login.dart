@@ -36,13 +36,17 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
+                    Image.asset(
+                      'assets/images/loan_app_logo.png',
+                      scale: 10,
+                    ),
                     Text(
                       'Login',
                       style: AppTheme.headerStyle(),
                     ),
-                    120.height(),
+                    60.height(),
                     CustomTextField(
-                     stateModel.emailController,
+                      stateModel.emailController,
                       hint: 'Email',
                       password: false,
                       border: Border.all(color: greyColor),
@@ -53,34 +57,33 @@ class _LoginScreenState extends State<LoginScreen> {
                       hint: 'Password',
                       border: Border.all(color: greyColor),
                     ),
-                    100.height(),
+                    40.height(),
                     CustomButton(
-                      onPressed: ()async {
-                           if (
-                              stateModel.passwordController.text.isEmpty) {
-                            showMessage(context, 'All fields are required',
-                                isError: true);
-                            return;
-                          }
-                          if (!FlutterUtilities().isEmailValid(
-                              stateModel.emailController.text.trim())) {
-                            showMessage(context, 'Invalid mail provided',
-                                isError: true);
-                            return;
-                          }
-                          await stateModel.logInUser();
-                          // To avoid Buildcontext message
-                          if (stateModel.state == ViewState.Error &&
-                              context.mounted) {
-                            showMessage(context, stateModel.message);
-                            return;
-                          }
-                    
-                          if (stateModel.state == ViewState.Success &&
-                              context.mounted) {
-                            showMessage(context, stateModel.message);
-                            context.go('/loan_dashboard_screen');
-                          }
+                      onPressed: () async {
+                        if (stateModel.passwordController.text.isEmpty) {
+                          showMessage(context, 'All fields are required',
+                              isError: true);
+                          return;
+                        }
+                        if (!FlutterUtilities().isEmailValid(
+                            stateModel.emailController.text.trim())) {
+                          showMessage(context, 'Invalid mail provided',
+                              isError: true);
+                          return;
+                        }
+                        await stateModel.logInUser();
+                        // To avoid Buildcontext message
+                        if (stateModel.state == ViewState.Error &&
+                            context.mounted) {
+                          showMessage(context, stateModel.message);
+                          return;
+                        }
+
+                        if (stateModel.state == ViewState.Success &&
+                            context.mounted) {
+                          showMessage(context, stateModel.message);
+                          context.go('/loan_dashboard_screen');
+                        }
                       },
                       text: 'Login',
                     ),

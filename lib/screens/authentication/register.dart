@@ -36,11 +36,15 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
+                    Image.asset(
+                      'assets/images/loan_app_logo.png',
+                      scale: 10,
+                    ),
                     Text(
                       'Register',
                       style: AppTheme.headerStyle(),
                     ),
-                    120.height(),
+                    60.height(),
                     CustomTextField(
                       stateModel.userNameController,
                       hint: 'Username',
@@ -60,7 +64,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       hint: 'Password',
                       border: Border.all(color: greyColor),
                     ),
-                    100.height(),
+                    40.height(),
                     CustomButton(
                       onPressed: () async {
                         if (stateModel.userNameController.text.isEmpty ||
@@ -91,7 +95,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       },
                       text: 'Register',
                     ),
-                    50.height(),
+                    20.height(),
                     Text.rich(
                       TextSpan(
                         children: [

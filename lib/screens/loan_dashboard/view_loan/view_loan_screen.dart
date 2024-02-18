@@ -39,6 +39,7 @@ class _ViewLoanScreenState extends State<ViewLoanScreen> {
         show: stateModel.viewState == ViewState.Busy,
         title: stateModel.message,
         child: Scaffold(
+          backgroundColor: const Color(0xFFEFF1F5),
           appBar: AppBar(
             title: Text(
               'Loan Details',
@@ -50,7 +51,11 @@ class _ViewLoanScreenState extends State<ViewLoanScreen> {
               : SingleChildScrollView(
                   child: Padding(
                     padding: const EdgeInsets.all(20),
-                    child: SizedBox(
+                    child: Container(
+                      padding: const EdgeInsets.all(20),
+                      decoration: const BoxDecoration(
+                        color: Color(0xFFFFFFFF),
+                      ),
                       height: MediaQuery.of(context).size.height,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -58,9 +63,14 @@ class _ViewLoanScreenState extends State<ViewLoanScreen> {
                           LoanViewDetailsCard(
                               titleText: stateModel.singleLoan!.loanName,
                               headerText: 'Loan Name'),
+                          10.height(),
                           LoanViewDetailsCard(
                               titleText:
-                                  "${stateModel.singleLoan!.loanCurrency.symbol}${currencyFormatter(double.parse(stateModel.singleLoan!.loanAmount.toString()))}",
+                                  "${stateModel.singleLoan!.loanCurrency.symbol}${currencyFormatter(
+                                double.parse(
+                                  stateModel.singleLoan!.loanAmount.toString(),
+                                ),
+                              )}",
                               headerText: 'Loan Amount'),
                           if (stateModel.singleLoan!.loanDoc != null)
                             Column(
@@ -81,14 +91,14 @@ class _ViewLoanScreenState extends State<ViewLoanScreen> {
                                     ))
                               ],
                             ),
-                          15.height(),
-                          Row(
+                          10.height(),
+                          Column(
                             children: [
                               LoanViewDetailsCard(
                                   titleText: DateFormat.yMEd().format(
                                       stateModel.singleLoan!.loanDateIncurred),
                                   headerText: 'Incurred Date'),
-                              const Spacer(),
+                              10.height(),
                               LoanViewDetailsCard(
                                   titleText: DateFormat.yMEd().format(
                                       stateModel.singleLoan!.loanDateDue),
@@ -109,39 +119,38 @@ class _ViewLoanScreenState extends State<ViewLoanScreen> {
                           LoanViewDetailsCard(
                               titleText: stateModel.singleLoan!.fullName,
                               headerText: 'Full Name'),
-                          20.height(),
+                          10.height(),
                           LoanViewDetailsCard(
                               titleText: stateModel.singleLoan!.phoneNumber,
                               headerText: 'Phone Number'),
+                          20.height(),
                           Row(
                             children: [
                               Expanded(
                                 child: CustomButton(
-                                  onPressed: ()async {
-                                     await stateModel
-                                          .deleteLoan(widget.loanId);
+                                  onPressed: () async {
+                                    await stateModel.deleteLoan(widget.loanId);
 
-                                      if (stateModel.viewState ==
-                                          ViewState.Error) {
-                                        if (context.mounted) {
-                                          showMessage(
-                                              context, stateModel.message,
-                                              isError: true);
-                                        }
-                                        return;
+                                    if (stateModel.viewState ==
+                                        ViewState.Error) {
+                                      if (context.mounted) {
+                                        showMessage(context, stateModel.message,
+                                            isError: true);
                                       }
+                                      return;
+                                    }
 
-                                      if (stateModel.viewState ==
-                                          ViewState.Success) {
-                                        if (context.mounted) {
-                                          stateModel.viewLoan();
-                                          showMessage(
-                                            context,
-                                            stateModel.message,
-                                          );
-                                          context.go('/loan_dashboard_screen');
-                                        }
+                                    if (stateModel.viewState ==
+                                        ViewState.Success) {
+                                      if (context.mounted) {
+                                        stateModel.viewLoan();
+                                        showMessage(
+                                          context,
+                                          stateModel.message,
+                                        );
+                                        context.go('/loan_dashboard_screen');
                                       }
+                                    }
                                   },
                                   text: 'Delete',
                                 ),
