@@ -61,7 +61,7 @@ class _SearchLoanScreenState extends State<SearchLoanScreen> {
                   Container(
                       margin: const EdgeInsets.symmetric(vertical: 50),
                       child: Text(
-                        "Search for a loan",
+                        '${stateModel.searchedLoan == null ? "Search for a loan" : stateModel.searchLoanQueryController}',
                         style: AppTheme.headerStyle(color: primaryColor),
                       )),
                 if (stateModel.searchedLoan != null &&

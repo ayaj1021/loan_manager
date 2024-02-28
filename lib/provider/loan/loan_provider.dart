@@ -375,6 +375,7 @@ class LoanProviderImpl extends ChangeNotifier implements LoanProviderUseCase {
     loanAmountController.clear();
     selectedCurrency = null;
     incurredDateController.clear();
+    searchLoanQueryController.clear();
     dueDateController.clear();
     creditorOrDebtorNameController.clear();
     creditorOrDebtorPhoneNumberController.clear();

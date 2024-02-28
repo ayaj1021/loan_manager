@@ -4,6 +4,7 @@ import 'package:loan_manager/config/extension.dart';
 import 'package:loan_manager/enums/enums.dart';
 import 'package:loan_manager/provider/authentication/auth_provider.dart';
 import 'package:loan_manager/provider/loan/loan_provider.dart';
+import 'package:loan_manager/screens/loan_dashboard/local_widgets/drawer_page.dart';
 import 'package:loan_manager/screens/loan_dashboard/local_widgets/loan_info_card.dart';
 import 'package:loan_manager/shared/utils/currency_formatter.dart';
 import 'package:loan_manager/shared/widgets/busy_overlay.dart';
@@ -35,7 +36,7 @@ class _LoanDashBoardScreenState extends State<LoanDashBoardScreen> {
               0.0,
               ((previousValue, element) =>
                   previousValue + double.parse(element.loanAmount)));
-                        final totalOwed = stateModel.loans
+      final totalOwed = stateModel.loans
           .where((element) => element.loanType == LoanType.LoanOwedByMe.name)
           .fold(
               0.0,
@@ -45,17 +46,13 @@ class _LoanDashBoardScreenState extends State<LoanDashBoardScreen> {
         show: stateModel.viewState == ViewState.Busy,
         title: stateModel.message,
         child: Scaffold(
+          drawer: const DrawerPage(),
           appBar: AppBar(
             title: Text(
               'Loan',
               style: AppTheme.headerStyle(),
             ),
             actions: [
-              IconButton(
-                  onPressed: () {
-                    authModel.logOutUser().then((value) => context.go('/'));
-                  },
-                  icon: const Icon(Icons.exit_to_app)),
               IconButton(
                   onPressed: () {
                     context.push('/search_loan_screen');
@@ -132,7 +129,7 @@ class _LoanDashBoardScreenState extends State<LoanDashBoardScreen> {
                                 style: AppTheme.headerStyle(),
                               ),
                               Text(
-                               '\$ ${currencyFormatter(totalOwed - totalLoaned)}',
+                                '\$ ${currencyFormatter(totalOwed - totalLoaned)}',
                                 style: AppTheme.titleStyle(),
                               ),
                             ],

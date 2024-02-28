@@ -1,6 +1,5 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_text_form_field/flutter_text_form_field.dart';
 import 'package:flutter_utilities/flutter_utilities.dart';
 import 'package:go_router/go_router.dart';
 import 'package:loan_manager/config/extension.dart';
@@ -45,26 +44,78 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       style: AppTheme.headerStyle(),
                     ),
                     60.height(),
-                    CustomTextField(
-                      stateModel.userNameController,
-                      hint: 'Username',
-                      password: false,
-                      border: Border.all(color: greyColor),
+                    // CustomTextField(
+                    //   stateModel.userNameController,
+                    //   hint: 'Username',
+                    //   password: false,
+                    //   border: Border.all(color: greyColor),
+                    // ),
+                    Container(
+                      height: 50,
+                      padding: const EdgeInsets.only(left: 10.0),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        border: Border.all(
+                          color: greyColor,
+                        ),
+                      ),
+                      child: TextField(
+                        controller: stateModel.userNameController,
+                        decoration: const InputDecoration(
+                          border: InputBorder.none,
+                          hintText: 'Username',
+                        ),
+                      ),
                     ),
                     20.height(),
-                    CustomTextField(
-                      stateModel.emailController,
-                      hint: 'Email',
-                      password: false,
-                      border: Border.all(color: greyColor),
+                    Container(
+                      height: 50,
+                      padding: const EdgeInsets.only(left: 10.0),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        border: Border.all(
+                          color: greyColor,
+                        ),
+                      ),
+                      child: TextField(
+                        controller: stateModel.emailController,
+                        decoration: const InputDecoration(
+                          border: InputBorder.none,
+                          hintText: 'Email',
+                        ),
+                      ),
                     ),
+                    // CustomTextField(
+                    //   stateModel.emailController,
+                    //   hint: 'Email',
+                    //   password: false,
+                    //   border: Border.all(color: greyColor),
+                    // ),
                     20.height(),
-                    CustomTextField(
-                      stateModel.passwordController,
-                      hint: 'Password',
-                      border: Border.all(color: greyColor),
+                    Container(
+                      height: 50,
+                      padding: const EdgeInsets.only(left: 10.0),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        border: Border.all(
+                          color: greyColor,
+                        ),
+                      ),
+                      child: TextField(
+                        controller: stateModel.passwordController,
+                        decoration: const InputDecoration(
+                          border: InputBorder.none,
+                          hintText: 'Password',
+                        ),
+                      ),
                     ),
-                    40.height(),
+                    // 20.height(),
+                    // CustomTextField(
+                    //   stateModel.passwordController,
+                    //   hint: 'Password',
+                    //   border: Border.all(color: greyColor),
+                    // ),
+                    30.height(),
                     CustomButton(
                       onPressed: () async {
                         if (stateModel.userNameController.text.isEmpty ||
@@ -79,7 +130,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               isError: true);
                           return;
                         }
-                        await stateModel.registerUser();
+                        await stateModel.registerUserEmailAndPassword();
                         // To avoid Buildcontext message
                         if (stateModel.state == ViewState.Error &&
                             context.mounted) {
@@ -94,6 +145,34 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         }
                       },
                       text: 'Register',
+                    ),
+                    10.height(),
+                    const Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Expanded(
+                          child: Divider(
+                            color: greyColor,
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 10),
+                          child: Text('Or'),
+                        ),
+                        Expanded(
+                          child: Divider(
+                            color: greyColor,
+                          ),
+                        ),
+                      ],
+                    ),
+                    20.height(),
+                    CustomButton(
+                      buttonColor: primaryColor,
+                      text: 'Sign up with phone number',
+                      onPressed: () {
+                        context.push('/phone_number_page');
+                      },
                     ),
                     20.height(),
                     Text.rich(
