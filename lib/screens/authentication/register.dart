@@ -5,9 +5,11 @@ import 'package:go_router/go_router.dart';
 import 'package:loan_manager/config/extension.dart';
 import 'package:loan_manager/enums/enums.dart';
 import 'package:loan_manager/provider/authentication/auth_provider.dart';
+import 'package:loan_manager/provider/obscure_provider/obscure_text.dart';
 import 'package:loan_manager/shared/utils/show_message.dart';
 import 'package:loan_manager/shared/widgets/busy_overlay.dart';
 import 'package:loan_manager/shared/widgets/custom_button.dart';
+import 'package:loan_manager/shared/widgets/text_field_widget.dart';
 import 'package:loan_manager/styles/colors.dart';
 import 'package:loan_manager/styles/themes.dart';
 import 'package:provider/provider.dart';
@@ -44,77 +46,32 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       style: AppTheme.headerStyle(),
                     ),
                     60.height(),
-                    // CustomTextField(
-                    //   stateModel.userNameController,
-                    //   hint: 'Username',
-                    //   password: false,
-                    //   border: Border.all(color: greyColor),
-                    // ),
-                    Container(
-                      height: 50,
-                      padding: const EdgeInsets.only(left: 10.0),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        border: Border.all(
-                          color: greyColor,
-                        ),
-                      ),
-                      child: TextField(
-                        controller: stateModel.userNameController,
-                        decoration: const InputDecoration(
-                          border: InputBorder.none,
-                          hintText: 'Username',
-                        ),
-                      ),
+                    TextFieldWidget(
+                      controller: stateModel.userNameController,
+                      hintText: 'Username',
+                      isObsure: false,
                     ),
                     20.height(),
-                    Container(
-                      height: 50,
-                      padding: const EdgeInsets.only(left: 10.0),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        border: Border.all(
-                          color: greyColor,
-                        ),
-                      ),
-                      child: TextField(
-                        controller: stateModel.emailController,
-                        decoration: const InputDecoration(
-                          border: InputBorder.none,
-                          hintText: 'Email',
-                        ),
-                      ),
+                    TextFieldWidget(
+                      controller: stateModel.emailController,
+                      hintText: 'Email',
+                      isObsure: false,
                     ),
-                    // CustomTextField(
-                    //   stateModel.emailController,
-                    //   hint: 'Email',
-                    //   password: false,
-                    //   border: Border.all(color: greyColor),
-                    // ),
                     20.height(),
-                    Container(
-                      height: 50,
-                      padding: const EdgeInsets.only(left: 10.0),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        border: Border.all(
-                          color: greyColor,
-                        ),
-                      ),
-                      child: TextField(
+                    Consumer<ObscureTextProvider>(
+                        builder: (context, boolProvider, _) {
+                      return TextFieldWidget(
                         controller: stateModel.passwordController,
-                        decoration: const InputDecoration(
-                          border: InputBorder.none,
-                          hintText: 'Password',
-                        ),
-                      ),
-                    ),
-                    // 20.height(),
-                    // CustomTextField(
-                    //   stateModel.passwordController,
-                    //   hint: 'Password',
-                    //   border: Border.all(color: greyColor),
-                    // ),
+                        hintText: 'Password',
+                        isObsure: boolProvider.isTrue,
+                        iconData: boolProvider.isTrue == true
+                            ? Icons.visibility_off
+                            : Icons.visibility,
+                        onTap: () {
+                          boolProvider.changeBool();
+                        },
+                      );
+                    }),
                     30.height(),
                     CustomButton(
                       onPressed: () async {

@@ -4,7 +4,7 @@ import 'package:intl/intl.dart';
 import 'package:loan_manager/config/extension.dart';
 import 'package:loan_manager/enums/enums.dart';
 import 'package:loan_manager/provider/loan/loan_provider.dart';
-import 'package:loan_manager/screens/loan_dashboard/local_widgets/loan_view_details_card.dart';
+import 'package:loan_manager/screens/pages/loan_dashboard/local_widgets/loan_view_details_card.dart';
 import 'package:loan_manager/shared/utils/app_logger.dart';
 import 'package:loan_manager/shared/utils/currency_formatter.dart';
 import 'package:loan_manager/shared/utils/show_message.dart';

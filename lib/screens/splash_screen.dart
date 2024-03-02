@@ -55,7 +55,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void _navigate() {
     Future.delayed(const Duration(seconds: 2), () {
       if (FirebaseAuth.instance.currentUser != null) {
-        context.go('/loan_dashboard_screen');
+        context.go('/bottom_nav_section');
       } else {
         context.go('/register_screen');
       }

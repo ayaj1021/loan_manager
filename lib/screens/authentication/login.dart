@@ -117,7 +117,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         if (stateModel.state == ViewState.Success &&
                             context.mounted) {
                           showMessage(context, stateModel.message);
-                          context.go('/loan_dashboard_screen');
+                          context.go('/bottom_nav_section');
                         }
                       },
                       text: 'Login',

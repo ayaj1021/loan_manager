@@ -3,7 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:loan_manager/config/extension.dart';
 import 'package:loan_manager/enums/enums.dart';
 import 'package:loan_manager/provider/loan/loan_provider.dart';
-import 'package:loan_manager/screens/loan_dashboard/local_widgets/loan_info_card.dart';
+import 'package:loan_manager/screens/pages/loan_dashboard/local_widgets/loan_info_card.dart';
 import 'package:loan_manager/shared/widgets/busy_overlay.dart';
 import 'package:loan_manager/styles/colors.dart';
 import 'package:loan_manager/styles/themes.dart';

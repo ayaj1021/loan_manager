@@ -4,7 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:loan_manager/config/router.dart';
 import 'package:loan_manager/firebase_options.dart';
 import 'package:loan_manager/provider/authentication/auth_provider.dart';
+import 'package:loan_manager/provider/bottom_nav_selection_provider/bottom_nav_selection_provider.dart';
+import 'package:loan_manager/provider/firebase_chat_provider/firebase_chat_provider.dart';
 import 'package:loan_manager/provider/loan/loan_provider.dart';
+import 'package:loan_manager/provider/obscure_provider/obscure_text.dart';
 import 'package:loan_manager/provider/theme_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -22,6 +25,9 @@ void main() async {
     ChangeNotifierProvider(create: (context) => AuthenticationProviderImpl()),
     ChangeNotifierProvider(create: (context) => LoanProviderImpl()),
     ChangeNotifierProvider(create: (context) => ThemeProvider()),
+    ChangeNotifierProvider(create: (context) => ObscureTextProvider()),
+    ChangeNotifierProvider(create: (context) => BottomNavSelectionProvider()),
+    ChangeNotifierProvider(create: (context) => FirebaseChatProvider()),
   ], child: const MyApp()));
 }
 

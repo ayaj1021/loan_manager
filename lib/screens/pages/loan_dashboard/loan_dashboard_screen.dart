@@ -4,8 +4,8 @@ import 'package:loan_manager/config/extension.dart';
 import 'package:loan_manager/enums/enums.dart';
 import 'package:loan_manager/provider/authentication/auth_provider.dart';
 import 'package:loan_manager/provider/loan/loan_provider.dart';
-import 'package:loan_manager/screens/loan_dashboard/local_widgets/drawer_page.dart';
-import 'package:loan_manager/screens/loan_dashboard/local_widgets/loan_info_card.dart';
+import 'package:loan_manager/screens/pages/loan_dashboard/local_widgets/drawer_page.dart';
+import 'package:loan_manager/screens/pages/loan_dashboard/local_widgets/loan_info_card.dart';
 import 'package:loan_manager/shared/utils/currency_formatter.dart';
 import 'package:loan_manager/shared/widgets/busy_overlay.dart';
 import 'package:loan_manager/styles/colors.dart';
@@ -215,12 +215,12 @@ class _LoanDashBoardScreenState extends State<LoanDashBoardScreen> {
               ),
             ),
           ),
-          floatingActionButton: FloatingActionButton.extended(
-              backgroundColor: primaryColor,
-              onPressed: () {
-                context.push('/add_loan_screen');
-              },
-              label: const Text('Create new loan')),
+          // floatingActionButton: FloatingActionButton.extended(
+          //     backgroundColor: primaryColor,
+          //     onPressed: () {
+          //       context.push('/add_loan_screen');
+          //     },
+          //     label: const Text('Create new loan')),
         ),
       );
     });
