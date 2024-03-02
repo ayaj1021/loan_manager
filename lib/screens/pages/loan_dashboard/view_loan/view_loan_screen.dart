@@ -11,8 +11,8 @@ import 'package:loan_manager/shared/utils/show_message.dart';
 import 'package:loan_manager/shared/utils/url_launcher_helper.dart';
 import 'package:loan_manager/shared/widgets/busy_overlay.dart';
 import 'package:loan_manager/shared/widgets/custom_button.dart';
+import 'package:loan_manager/styles/app_text_style.dart';
 import 'package:loan_manager/styles/colors.dart';
-import 'package:loan_manager/styles/themes.dart';
 import 'package:provider/provider.dart';
 
 class ViewLoanScreen extends StatefulWidget {
@@ -43,7 +43,7 @@ class _ViewLoanScreenState extends State<ViewLoanScreen> {
           appBar: AppBar(
             title: Text(
               'Loan Details',
-              style: AppTheme.headerStyle(),
+              style: AppTextStyle.headerStyle(),
             ),
           ),
           body: stateModel.singleLoan == null
@@ -77,7 +77,7 @@ class _ViewLoanScreenState extends State<ViewLoanScreen> {
                               children: [
                                 Text(
                                   'Loan Document',
-                                  style: AppTheme.headerStyle(),
+                                  style: AppTextStyle.headerStyle(),
                                 ),
                                 TextButton(
                                     onPressed: () {
@@ -86,7 +86,7 @@ class _ViewLoanScreenState extends State<ViewLoanScreen> {
                                     },
                                     child: Text(
                                       'View Document',
-                                      style: AppTheme.titleStyle(
+                                      style: AppTextStyle.titleStyle(
                                           color: primaryColor),
                                     ))
                               ],
@@ -112,7 +112,8 @@ class _ViewLoanScreenState extends State<ViewLoanScreen> {
                             stateModel.selectedLoanType == LoanType.LoanOwedByMe
                                 ? "Debtor's Details"
                                 : "Creditor's Details",
-                            style: AppTheme.headerStyle(color: primaryColor),
+                            style:
+                                AppTextStyle.headerStyle(color: primaryColor),
                           ),
                           const Divider(),
                           10.height(),

@@ -15,26 +15,37 @@ class _DrawerPageState extends State<DrawerPage> {
   bool isSwitched = false;
   @override
   Widget build(BuildContext context) {
+    final themeState = Provider.of<ThemeProvider>(context);
     return Drawer(
       child: ListView(
           padding: const EdgeInsets.symmetric(
             vertical: 120,
           ),
           children: [
-            Consumer<ThemeProvider>(builder: (context, theme, _) {
-              return ListTile(
+            ListTile(
                 // contentPadding: const EdgeInsets.symmetric(horizontal: 20),
                 leading: const Text(
                   'Change Theme',
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 ),
-                trailing: IconButton(
-                    onPressed: () {
-                      theme.toggleTheme();
-                    },
-                    icon: const Icon(Icons.sunny)),
-              );
-            }),
+                trailing: Switch(
+                    // secondary: Icon(
+                    //   themeState.getDarkTheme
+                    //       ? Icons.dark_mode_outlined
+                    //       : Icons.light_mode_outlined,
+                    // ),
+                    value: themeState.getDarkTheme,
+                    onChanged: (bool value) {
+                      setState(() {
+                        themeState.setDarkTheme = value;
+                      });
+                    })
+                // IconButton(
+                //     onPressed: () {
+                //       theme.toggleTheme();
+                //     },
+                //     icon: const Icon(Icons.sunny)),
+                ),
             Consumer<AuthenticationProviderImpl>(
                 builder: (context, authModel, _) {
               return ListTile(

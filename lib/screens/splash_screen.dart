@@ -46,7 +46,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 )
               ]),
           // appName,
-          // style: AppTheme.headerStyle(),
+          // style: AppTextStyle.headerStyle(),
         ),
       ],
     )));

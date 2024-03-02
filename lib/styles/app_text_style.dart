@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:loan_manager/styles/font_size.dart';
 
-class AppTheme {
-  AppTheme._();
+class AppTextStyle {
+  AppTextStyle._();
 
-  static TextStyle titleStyle({Color? color, bool isBold = false}) =>
-      TextStyle(
+  static TextStyle titleStyle({Color? color, bool isBold = false}) => TextStyle(
         fontSize: titleSize,
         color: color,
         fontWeight: isBold ? FontWeight.bold : FontWeight.normal,
@@ -18,10 +17,12 @@ class AppTheme {
         fontWeight: isBold ? FontWeight.bold : FontWeight.normal,
       );
 
-  static TextStyle headerStyle({Color? color, }) =>
+  static TextStyle headerStyle({
+    Color? color,
+  }) =>
       TextStyle(
         fontSize: headerSize,
         color: color,
-        fontWeight: FontWeight.bold ,
+        fontWeight: FontWeight.bold,
       );
 }

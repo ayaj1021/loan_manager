@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:loan_manager/model/chat_user_model.dart';
+import 'package:loan_manager/styles/app_text_style.dart';
 import 'package:loan_manager/styles/colors.dart';
-import 'package:loan_manager/styles/themes.dart';
 import 'package:timeago/timeago.dart' as timeago;
 
 class ChatUserItem extends StatefulWidget {
@@ -42,12 +42,12 @@ class _ChatUserItemState extends State<ChatUserItem> {
         ),
         title: Text(
           widget.chatUserModel.name,
-          style: AppTheme.headerStyle(),
+          style: AppTextStyle.headerStyle(),
         ),
         subtitle: Text(
           'Last Active: ${timeago.format(widget.chatUserModel.lastActive)}',
           maxLines: 2,
-          style: AppTheme.subTitleStyle(color: primaryColor),
+          style: AppTextStyle.subTitleStyle(color: primaryColor),
           overflow: TextOverflow.ellipsis,
         ),
       ),

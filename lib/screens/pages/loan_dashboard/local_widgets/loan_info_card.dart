@@ -4,8 +4,8 @@ import 'package:loan_manager/config/extension.dart';
 import 'package:loan_manager/enums/enums.dart';
 import 'package:loan_manager/model/loan_model.dart';
 import 'package:loan_manager/shared/utils/currency_formatter.dart';
+import 'package:loan_manager/styles/app_text_style.dart';
 import 'package:loan_manager/styles/colors.dart';
-import 'package:loan_manager/styles/themes.dart';
 
 class LoanInfoCard extends StatelessWidget {
   const LoanInfoCard({super.key, required this.loanData, required this.onTap});
@@ -40,7 +40,7 @@ class LoanInfoCard extends StatelessWidget {
                   child: Text(
                     "${loanData.loanCurrency.symbol}${currencyFormatter(double.parse(loanData.loanAmount.toString()))}",
                     textAlign: TextAlign.right,
-                    style: AppTheme.subTitleStyle(),
+                    style: AppTextStyle.subTitleStyle(),
                   ),
                 )
               ],
@@ -49,19 +49,19 @@ class LoanInfoCard extends StatelessWidget {
             10.height(),
             Text(
               loanData.loanName.ellipsis(),
-              style: AppTheme.titleStyle(isBold: true),
+              style: AppTextStyle.titleStyle(isBold: true),
             ),
             Text(loanData.loanType == LoanType.LoanGivenByMe.name
                 ? 'Loaned to'
                 : 'Borrowed from'),
             Text(
               loanData.fullName.ellipsis(),
-              style: AppTheme.titleStyle(isBold: true),
+              style: AppTextStyle.titleStyle(isBold: true),
             ),
             const Text('On'),
             Text(
               DateFormat.yMEd().format(loanData.loanDateIncurred),
-              style: AppTheme.titleStyle(isBold: true),
+              style: AppTextStyle.titleStyle(isBold: true),
             )
           ],
         ),

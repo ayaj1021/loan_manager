@@ -9,8 +9,8 @@ import 'package:loan_manager/provider/theme_provider.dart';
 import 'package:loan_manager/shared/utils/show_message.dart';
 import 'package:loan_manager/shared/widgets/busy_overlay.dart';
 import 'package:loan_manager/shared/widgets/custom_button.dart';
+import 'package:loan_manager/styles/app_text_style.dart';
 import 'package:loan_manager/styles/colors.dart';
-import 'package:loan_manager/styles/themes.dart';
 import 'package:provider/provider.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -42,7 +42,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     Text(
                       'Login',
-                      style: AppTheme.headerStyle(),
+                      style: AppTextStyle.headerStyle(),
                     ),
                     60.height(),
                     // CustomTextField(
@@ -128,10 +128,10 @@ class _LoginScreenState extends State<LoginScreen> {
                         children: [
                           TextSpan(
                               text: 'Don\'t have an account?  ',
-                              style: AppTheme.titleStyle(isBold: true)),
+                              style: AppTextStyle.titleStyle(isBold: true)),
                           TextSpan(
                             text: 'Register',
-                            style: AppTheme.titleStyle(
+                            style: AppTextStyle.titleStyle(
                               isBold: true,
                               color: primaryColor,
                             ),

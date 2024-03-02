@@ -11,8 +11,8 @@ import 'package:loan_manager/shared/utils/show_message.dart';
 import 'package:loan_manager/shared/widgets/busy_overlay.dart';
 import 'package:loan_manager/shared/widgets/custom_button.dart';
 import 'package:loan_manager/shared/widgets/date_picker.dart';
+import 'package:loan_manager/styles/app_text_style.dart';
 import 'package:loan_manager/styles/colors.dart';
-import 'package:loan_manager/styles/themes.dart';
 import 'package:provider/provider.dart';
 
 class AddLoanScreen extends StatefulWidget {
@@ -45,7 +45,7 @@ class _AddLoanScreenState extends State<AddLoanScreen> {
                       children: [
                         Text(
                           'Loan Name',
-                          style: AppTheme.headerStyle(),
+                          style: AppTextStyle.headerStyle(),
                         ),
                         8.height(),
                         CustomTextField(
@@ -57,7 +57,7 @@ class _AddLoanScreenState extends State<AddLoanScreen> {
                         20.height(),
                         Text(
                           'Loan Type',
-                          style: AppTheme.headerStyle(),
+                          style: AppTextStyle.headerStyle(),
                         ),
                         8.height(),
                         ...List.generate(LoanType.values.length, (index) {
@@ -79,7 +79,7 @@ class _AddLoanScreenState extends State<AddLoanScreen> {
                         20.height(),
                         Text(
                           'Loan Document (Optional)',
-                          style: AppTheme.headerStyle(),
+                          style: AppTextStyle.headerStyle(),
                         ),
                         8.height(),
                         Row(
@@ -122,7 +122,8 @@ class _AddLoanScreenState extends State<AddLoanScreen> {
                               },
                               child: Text(
                                 'Upload Document (pdf, image)',
-                                style: AppTheme.titleStyle(color: primaryColor),
+                                style: AppTextStyle.titleStyle(
+                                    color: primaryColor),
                               ),
                             ),
                             const Spacer(),
@@ -138,12 +139,12 @@ class _AddLoanScreenState extends State<AddLoanScreen> {
                           children: [
                             Text(
                               'Loan Amount',
-                              style: AppTheme.headerStyle(),
+                              style: AppTextStyle.headerStyle(),
                             ),
                             const Spacer(),
                             Text(
                               'Loan Currency',
-                              style: AppTheme.headerStyle(),
+                              style: AppTextStyle.headerStyle(),
                             ),
                           ],
                         ),
@@ -192,12 +193,12 @@ class _AddLoanScreenState extends State<AddLoanScreen> {
                           children: [
                             Text(
                               'Incurred Date',
-                              style: AppTheme.headerStyle(),
+                              style: AppTextStyle.headerStyle(),
                             ),
                             const Spacer(),
                             Text(
                               'Due Date',
-                              style: AppTheme.headerStyle(),
+                              style: AppTextStyle.headerStyle(),
                             ),
                           ],
                         ),
@@ -275,12 +276,12 @@ class _AddLoanScreenState extends State<AddLoanScreen> {
                             children: [
                               Text(
                                 "${stateModel.selectedLoanType == LoanType.LoanOwedByMe ? 'Creditor\'s' : 'Debtor\'s'} details",
-                                style: AppTheme.headerStyle(),
+                                style: AppTextStyle.headerStyle(),
                               ),
                               10.height(),
                               Text(
                                 'Full Name',
-                                style: AppTheme.headerStyle(),
+                                style: AppTextStyle.headerStyle(),
                               ),
                               8.height(),
                               CustomTextField(
@@ -292,7 +293,7 @@ class _AddLoanScreenState extends State<AddLoanScreen> {
                               10.height(),
                               Text(
                                 'Phone Number',
-                                style: AppTheme.headerStyle(),
+                                style: AppTextStyle.headerStyle(),
                               ),
                               8.height(),
                               CustomTextField(

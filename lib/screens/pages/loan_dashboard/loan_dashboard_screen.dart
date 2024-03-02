@@ -4,12 +4,12 @@ import 'package:loan_manager/config/extension.dart';
 import 'package:loan_manager/enums/enums.dart';
 import 'package:loan_manager/provider/authentication/auth_provider.dart';
 import 'package:loan_manager/provider/loan/loan_provider.dart';
-import 'package:loan_manager/screens/pages/loan_dashboard/local_widgets/drawer_page.dart';
+import 'package:loan_manager/screens/pages/loan_dashboard/drawer_page.dart';
 import 'package:loan_manager/screens/pages/loan_dashboard/local_widgets/loan_info_card.dart';
 import 'package:loan_manager/shared/utils/currency_formatter.dart';
 import 'package:loan_manager/shared/widgets/busy_overlay.dart';
+import 'package:loan_manager/styles/app_text_style.dart';
 import 'package:loan_manager/styles/colors.dart';
-import 'package:loan_manager/styles/themes.dart';
 import 'package:provider/provider.dart';
 
 class LoanDashBoardScreen extends StatefulWidget {
@@ -50,7 +50,7 @@ class _LoanDashBoardScreenState extends State<LoanDashBoardScreen> {
           appBar: AppBar(
             title: Text(
               'Loan',
-              style: AppTheme.headerStyle(),
+              style: AppTextStyle.headerStyle(),
             ),
             actions: [
               IconButton(
@@ -85,7 +85,7 @@ class _LoanDashBoardScreenState extends State<LoanDashBoardScreen> {
                                     Expanded(
                                       child: Text(
                                         'Total Loaned',
-                                        style: AppTheme.headerStyle(),
+                                        style: AppTextStyle.headerStyle(),
                                       ),
                                     ),
                                     const Icon(
@@ -96,7 +96,7 @@ class _LoanDashBoardScreenState extends State<LoanDashBoardScreen> {
                                 ),
                                 Text(
                                   '\$ ${currencyFormatter(totalLoaned)}',
-                                  style: AppTheme.titleStyle(),
+                                  style: AppTextStyle.titleStyle(),
                                 ),
                                 const Divider(),
                                 Row(
@@ -104,7 +104,7 @@ class _LoanDashBoardScreenState extends State<LoanDashBoardScreen> {
                                     Expanded(
                                       child: Text(
                                         'Total Owed',
-                                        style: AppTheme.headerStyle(),
+                                        style: AppTextStyle.headerStyle(),
                                       ),
                                     ),
                                     const Icon(
@@ -115,7 +115,7 @@ class _LoanDashBoardScreenState extends State<LoanDashBoardScreen> {
                                 ),
                                 Text(
                                   '\$ ${currencyFormatter(totalOwed)}',
-                                  style: AppTheme.titleStyle(),
+                                  style: AppTextStyle.titleStyle(),
                                 ),
                               ],
                             ),
@@ -126,11 +126,11 @@ class _LoanDashBoardScreenState extends State<LoanDashBoardScreen> {
                             children: [
                               Text(
                                 'Total Balance',
-                                style: AppTheme.headerStyle(),
+                                style: AppTextStyle.headerStyle(),
                               ),
                               Text(
                                 '\$ ${currencyFormatter(totalOwed - totalLoaned)}',
-                                style: AppTheme.titleStyle(),
+                                style: AppTextStyle.titleStyle(),
                               ),
                             ],
                           ),
@@ -144,7 +144,7 @@ class _LoanDashBoardScreenState extends State<LoanDashBoardScreen> {
                     children: [
                       Text(
                         'Pending Loan',
-                        style: AppTheme.headerStyle(),
+                        style: AppTextStyle.headerStyle(),
                       ),
                       15.height(),
                       (stateModel.pendingLoans.isNotEmpty)
@@ -169,7 +169,7 @@ class _LoanDashBoardScreenState extends State<LoanDashBoardScreen> {
                           : Center(
                               child: Text(
                                 'No Pending Loans',
-                                style: AppTheme.headerStyle(),
+                                style: AppTextStyle.headerStyle(),
                               ),
                             )
                     ],
@@ -180,7 +180,7 @@ class _LoanDashBoardScreenState extends State<LoanDashBoardScreen> {
                     children: [
                       Text(
                         'Completed Loan',
-                        style: AppTheme.headerStyle(),
+                        style: AppTextStyle.headerStyle(),
                       ),
                       15.height(),
                       (stateModel.completedLoans.isNotEmpty)
@@ -206,7 +206,7 @@ class _LoanDashBoardScreenState extends State<LoanDashBoardScreen> {
                           : Center(
                               child: Text(
                                 'No Completed Loans',
-                                style: AppTheme.headerStyle(),
+                                style: AppTextStyle.headerStyle(),
                               ),
                             )
                     ],

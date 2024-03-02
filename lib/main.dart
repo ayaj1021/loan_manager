@@ -9,6 +9,7 @@ import 'package:loan_manager/provider/firebase_chat_provider/firebase_chat_provi
 import 'package:loan_manager/provider/loan/loan_provider.dart';
 import 'package:loan_manager/provider/obscure_provider/obscure_text.dart';
 import 'package:loan_manager/provider/theme_provider.dart';
+import 'package:loan_manager/styles/app_theme.dart';
 import 'package:provider/provider.dart';
 
 void main() async {
@@ -31,24 +32,45 @@ void main() async {
   ], child: const MyApp()));
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp.router(
-      debugShowCheckedModeBanner: false,
-      routerConfig: router,
-      theme: Provider.of<ThemeProvider>(context).themeData,
+  State<MyApp> createState() => _MyAppState();
+}
 
-      // ThemeData(
-      //     scaffoldBackgroundColor: whiteColor,
-      //     primaryColor: primaryColor,
-      //     appBarTheme: const AppBarTheme(
-      //       centerTitle: true,
-      //       scrolledUnderElevation: 0,
-      //       backgroundColor: Colors.transparent,
-      //     )),
-    );
+class _MyAppState extends State<MyApp> {
+  ThemeProvider themeChangeProvider = ThemeProvider();
+
+  Future<void> getCurrentTheme() async {
+    themeChangeProvider.setDarkTheme =
+        await themeChangeProvider.themePrefs.getTheme();
+  }
+
+  @override
+  void initState() {
+    getCurrentTheme();
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Consumer<ThemeProvider>(builder: (context, themeProvider, _) {
+      return MaterialApp.router(
+        debugShowCheckedModeBanner: false,
+        routerConfig: router,
+        theme: Styles.themeData(themeProvider.getDarkTheme, context),
+        // Provider.of<ThemeProvider>(context).themeData,
+
+        // ThemeData(
+        //     scaffoldBackgroundColor: whiteColor,
+        //     primaryColor: primaryColor,
+        //     appBarTheme: const AppBarTheme(
+        //       centerTitle: true,
+        //       scrolledUnderElevation: 0,
+        //       backgroundColor: Colors.transparent,
+        //     )),
+      );
+    });
   }
 }

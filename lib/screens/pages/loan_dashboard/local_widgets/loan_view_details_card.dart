@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:loan_manager/config/extension.dart';
+import 'package:loan_manager/styles/app_text_style.dart';
 import 'package:loan_manager/styles/colors.dart';
-import 'package:loan_manager/styles/themes.dart';
 
 class LoanViewDetailsCard extends StatelessWidget {
   const LoanViewDetailsCard(
@@ -27,14 +27,14 @@ class LoanViewDetailsCard extends StatelessWidget {
         children: [
           Text(
             headerText,
-            style: AppTheme.subTitleStyle(color: primaryColor).copyWith(
+            style: AppTextStyle.subTitleStyle(color: primaryColor).copyWith(
               fontWeight: FontWeight.bold,
             ),
           ),
           8.height(),
           Text(
             titleText,
-            style: AppTheme.subTitleStyle(color: const Color(0xFF001A4D)),
+            style: AppTextStyle.subTitleStyle(color: const Color(0xFF001A4D)),
           ),
         ],
       ),

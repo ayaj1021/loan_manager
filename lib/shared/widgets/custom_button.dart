@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:loan_manager/styles/app_text_style.dart';
 import 'package:loan_manager/styles/colors.dart';
-import 'package:loan_manager/styles/themes.dart';
 
 class CustomButton extends StatelessWidget {
   const CustomButton({
@@ -31,7 +31,7 @@ class CustomButton extends StatelessWidget {
       ),
       child: Text(
         text,
-        style: AppTheme.titleStyle(color: textColor ?? whiteColor),
+        style: AppTextStyle.titleStyle(color: textColor ?? whiteColor),
       ),
     );
   }

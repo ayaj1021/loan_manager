@@ -6,8 +6,8 @@ import 'package:loan_manager/provider/authentication/auth_provider.dart';
 import 'package:loan_manager/shared/utils/show_message.dart';
 import 'package:loan_manager/shared/widgets/busy_overlay.dart';
 import 'package:loan_manager/shared/widgets/custom_button.dart';
+import 'package:loan_manager/styles/app_text_style.dart';
 import 'package:loan_manager/styles/colors.dart';
-import 'package:loan_manager/styles/themes.dart';
 import 'package:pinput/pinput.dart';
 import 'package:provider/provider.dart';
 
@@ -42,7 +42,7 @@ class _VerificationPageState extends State<VerificationPage> {
             ),
             title: Text(
               'Enter OTP',
-              style: AppTheme.titleStyle(),
+              style: AppTextStyle.titleStyle(),
             ),
           ),
           body: SafeArea(
@@ -60,7 +60,7 @@ class _VerificationPageState extends State<VerificationPage> {
                   30.height(),
                   Text(
                     'Please kindly inout the OTP code we have sent to ${stateModel.phoneController.text}',
-                    style: AppTheme.titleStyle(),
+                    style: AppTextStyle.titleStyle(),
                   ),
                   20.height(),
                   Pinput(
@@ -74,7 +74,7 @@ class _VerificationPageState extends State<VerificationPage> {
                             border: Border.all(
                               color: primaryColor,
                             )),
-                        textStyle: AppTheme.titleStyle()),
+                        textStyle: AppTextStyle.titleStyle()),
                     onCompleted: (value) {
                       setState(() {
                         otpCode = value;
@@ -96,13 +96,13 @@ class _VerificationPageState extends State<VerificationPage> {
                   20.height(),
                   Text(
                     'Didn\'t receive any code?',
-                    style: AppTheme.titleStyle(),
+                    style: AppTextStyle.titleStyle(),
                   ),
                   5.height(),
                   Text(
                     'Resend New Code',
-                    style:
-                        AppTheme.titleStyle(color: primaryColor, isBold: true),
+                    style: AppTextStyle.titleStyle(
+                        color: primaryColor, isBold: true),
                   )
                 ],
               ),

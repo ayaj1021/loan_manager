@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:loan_manager/styles/themes.dart';
+import 'package:loan_manager/styles/app_text_style.dart';
 import 'package:toastification/toastification.dart';
 
 void showMessage(BuildContext context, String message, {bool isError = false}) {
@@ -7,7 +7,7 @@ void showMessage(BuildContext context, String message, {bool isError = false}) {
       context: context,
       title: Text(
         message,
-        style: AppTheme.headerStyle(),
+        style: AppTextStyle.headerStyle(),
       ),
       showProgressBar: true,
       autoCloseDuration: const Duration(seconds: 3),

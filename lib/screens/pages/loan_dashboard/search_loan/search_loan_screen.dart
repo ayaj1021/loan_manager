@@ -5,8 +5,8 @@ import 'package:loan_manager/enums/enums.dart';
 import 'package:loan_manager/provider/loan/loan_provider.dart';
 import 'package:loan_manager/screens/pages/loan_dashboard/local_widgets/loan_info_card.dart';
 import 'package:loan_manager/shared/widgets/busy_overlay.dart';
+import 'package:loan_manager/styles/app_text_style.dart';
 import 'package:loan_manager/styles/colors.dart';
-import 'package:loan_manager/styles/themes.dart';
 import 'package:provider/provider.dart';
 
 class SearchLoanScreen extends StatefulWidget {
@@ -27,7 +27,7 @@ class _SearchLoanScreenState extends State<SearchLoanScreen> {
           appBar: AppBar(
             title: Text(
               'Search Loan',
-              style: AppTheme.headerStyle(),
+              style: AppTextStyle.headerStyle(),
             ),
           ),
           body: Padding(
@@ -62,7 +62,7 @@ class _SearchLoanScreenState extends State<SearchLoanScreen> {
                       margin: const EdgeInsets.symmetric(vertical: 50),
                       child: Text(
                         '${stateModel.searchedLoan == null ? "Search for a loan" : stateModel.searchLoanQueryController}',
-                        style: AppTheme.headerStyle(color: primaryColor),
+                        style: AppTextStyle.headerStyle(color: primaryColor),
                       )),
                 if (stateModel.searchedLoan != null &&
                     stateModel.searchedLoan!.isEmpty)
@@ -70,7 +70,7 @@ class _SearchLoanScreenState extends State<SearchLoanScreen> {
                       margin: const EdgeInsets.symmetric(vertical: 50),
                       child: Text(
                         "No loan found",
-                        style: AppTheme.headerStyle(color: primaryColor),
+                        style: AppTextStyle.headerStyle(color: primaryColor),
                       )),
                 if (stateModel.searchedLoan != null &&
                     stateModel.searchedLoan!.isNotEmpty)

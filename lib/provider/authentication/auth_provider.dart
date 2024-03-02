@@ -233,10 +233,10 @@ class AuthenticationProviderImpl extends ChangeNotifier
         await firebaseFirestore.collection("users").doc(_uid).get();
 
     if (snapshot.exists) {
-      print('USER EXIST');
+      //  print('USER EXIST');
       return true;
     } else {
-      print('NEW USER');
+      //  print('NEW USER');
       return false;
     }
   }

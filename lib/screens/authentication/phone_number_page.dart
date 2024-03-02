@@ -7,8 +7,8 @@ import 'package:loan_manager/provider/authentication/auth_provider.dart';
 import 'package:loan_manager/shared/utils/show_message.dart';
 import 'package:loan_manager/shared/widgets/busy_overlay.dart';
 import 'package:loan_manager/shared/widgets/custom_button.dart';
+import 'package:loan_manager/styles/app_text_style.dart';
 import 'package:loan_manager/styles/colors.dart';
-import 'package:loan_manager/styles/themes.dart';
 import 'package:provider/provider.dart';
 
 class PhoneNumberPage extends StatefulWidget {
@@ -51,7 +51,7 @@ class _PhoneNumberPageState extends State<PhoneNumberPage> {
             ),
             title: Text(
               'Phone Number',
-              style: AppTheme.titleStyle(),
+              style: AppTextStyle.titleStyle(),
             ),
           ),
           body: SafeArea(
@@ -63,7 +63,7 @@ class _PhoneNumberPageState extends State<PhoneNumberPage> {
                 Center(
                   child: Text(
                     'Please add your phone number',
-                    style: AppTheme.subTitleStyle().copyWith(
+                    style: AppTextStyle.subTitleStyle().copyWith(
                       fontSize: 14,
                       fontWeight: FontWeight.bold,
                     ),
@@ -72,7 +72,7 @@ class _PhoneNumberPageState extends State<PhoneNumberPage> {
                 30.height(),
                 Text(
                   '* Phone number',
-                  style: AppTheme.subTitleStyle(),
+                  style: AppTextStyle.subTitleStyle(),
                 ),
                 15.height(),
 
@@ -89,7 +89,7 @@ class _PhoneNumberPageState extends State<PhoneNumberPage> {
                     child: TextField(
                       cursorColor: primaryColor,
                       controller: stateModel.phoneController,
-                      style: AppTheme.titleStyle(),
+                      style: AppTextStyle.titleStyle(),
                       onChanged: (value) {
                         setState(() {
                           stateModel.phoneController.text = value;
@@ -117,7 +117,7 @@ class _PhoneNumberPageState extends State<PhoneNumberPage> {
                               },
                               child: Text(
                                 '${selectedCountry.flagEmoji} + ${selectedCountry.phoneCode}',
-                                style: AppTheme.titleStyle(),
+                                style: AppTextStyle.titleStyle(),
                               ),
                             ),
                           ),

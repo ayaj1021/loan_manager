@@ -10,8 +10,8 @@ import 'package:loan_manager/shared/utils/show_message.dart';
 import 'package:loan_manager/shared/widgets/busy_overlay.dart';
 import 'package:loan_manager/shared/widgets/custom_button.dart';
 import 'package:loan_manager/shared/widgets/text_field_widget.dart';
+import 'package:loan_manager/styles/app_text_style.dart';
 import 'package:loan_manager/styles/colors.dart';
-import 'package:loan_manager/styles/themes.dart';
 import 'package:provider/provider.dart';
 
 class RegisterScreen extends StatefulWidget {
@@ -43,7 +43,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     ),
                     Text(
                       'Register',
-                      style: AppTheme.headerStyle(),
+                      style: AppTextStyle.headerStyle(),
                     ),
                     60.height(),
                     TextFieldWidget(
@@ -137,10 +137,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         children: [
                           TextSpan(
                               text: 'Already have an account?  ',
-                              style: AppTheme.titleStyle(isBold: true)),
+                              style: AppTextStyle.titleStyle(isBold: true)),
                           TextSpan(
                             text: 'Sign in',
-                            style: AppTheme.titleStyle(
+                            style: AppTextStyle.titleStyle(
                               isBold: true,
                               color: primaryColor,
                             ),
