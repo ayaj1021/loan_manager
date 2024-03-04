@@ -6,6 +6,7 @@ import 'package:loan_manager/screens/authentication/register.dart';
 import 'package:loan_manager/screens/authentication/verification_page.dart';
 import 'package:loan_manager/screens/bottom_nav/bottom_nav_section.dart';
 import 'package:loan_manager/screens/pages/chats_section/chat_details_screen.dart';
+import 'package:loan_manager/screens/pages/chats_section/chat_user_item.dart';
 import 'package:loan_manager/screens/pages/loan_dashboard/add_loan/add_loan_screen.dart';
 import 'package:loan_manager/screens/pages/loan_dashboard/loan_dashboard_screen.dart';
 import 'package:loan_manager/screens/pages/loan_dashboard/search_loan/search_loan_screen.dart';
@@ -26,10 +27,20 @@ final router = GoRouter(initialLocation: '/', routes: [
       path: '/loan_dashboard_screen',
       builder: (context, state) => const LoanDashBoardScreen()),
   GoRoute(
-      path: '/chat_details_screen',
+      path: '/loan_dashboard_screen',
       builder: (context, state) {
-        ChatUserModel chatUserModel =
-            state.pathParameters['chatUserModel'] as ChatUserModel;
+        ChatUserModel chatUserModel = state.extra as ChatUserModel;
+        return ChatUserItem(
+          chatUserModel: chatUserModel,
+        );
+      }),
+  GoRoute(
+      path: '/chat_details_screen',
+      builder: (
+        context,
+        state,
+      ) {
+        ChatUserModel chatUserModel = state.extra as ChatUserModel;
         return ChatDetailsScreen(
           chatUserModel: chatUserModel,
         );

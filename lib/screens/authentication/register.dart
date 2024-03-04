@@ -64,7 +64,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         controller: stateModel.passwordController,
                         hintText: 'Password',
                         isObsure: boolProvider.isTrue,
-                        iconData: boolProvider.isTrue == true
+                        suffixIcon: boolProvider.isTrue == true
                             ? Icons.visibility_off
                             : Icons.visibility,
                         onTap: () {

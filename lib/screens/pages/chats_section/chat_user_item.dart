@@ -19,8 +19,9 @@ class _ChatUserItemState extends State<ChatUserItem> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        context.push('/chat_details_screen');
+        context.push('/chat_details_screen', extra: widget.chatUserModel);
       },
+      //${widget.chatUserModel}
       child: ListTile(
         contentPadding: EdgeInsets.zero,
         leading: Stack(

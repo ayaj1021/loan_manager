@@ -33,6 +33,7 @@ class _BottomNavSectionState extends State<BottomNavSection> {
       return Scaffold(
         body: _pages[bottomNavProv.selectedIndex],
         bottomNavigationBar: BottomNavigationBar(
+            elevation: 0,
             selectedItemColor: primaryColor,
             currentIndex: bottomNavProv.selectedIndex,
             onTap: bottomNavProv.changeIndex,

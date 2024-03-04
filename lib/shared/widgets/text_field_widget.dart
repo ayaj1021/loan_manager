@@ -5,17 +5,23 @@ class TextFieldWidget extends StatelessWidget {
   const TextFieldWidget({
     super.key,
     required this.controller,
-    required this.hintText,
+    this.hintText,
     this.isObsure,
-    this.iconData,
+    this.suffixIcon,
     this.onTap,
+    this.onChanged,
+    this.labelText,
+    this.prefixIcon,
   });
 
   final TextEditingController controller;
-  final String hintText;
+  final String? hintText;
+  final String? labelText;
   final bool? isObsure;
-  final IconData? iconData;
+  final IconData? suffixIcon;
+  final IconData? prefixIcon;
   final VoidCallback? onTap;
+  final ValueChanged<String>? onChanged;
 
   @override
   Widget build(BuildContext context) {
@@ -29,13 +35,13 @@ class TextFieldWidget extends StatelessWidget {
         ),
       ),
       child: TextField(
-        obscureText: isObsure!,
+        obscureText: isObsure ?? false,
         controller: controller,
         decoration: InputDecoration(
           border: InputBorder.none,
           hintText: hintText,
           suffixIcon: IconButton(
-            icon: Icon(iconData),
+            icon: Icon(suffixIcon),
             onPressed: onTap,
           ),
         ),

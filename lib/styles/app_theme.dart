@@ -18,11 +18,7 @@ class Styles {
                 primary: primaryColor,
                 secondary: Colors.blue.shade200,
               ),
-        // colorScheme: ThemeData().colorScheme.copyWith(
-        //       secondary:
-        //           isDarkTheme ? Colors.grey.shade500 : Colors.blue.shade200,
-        //       brightness: isDarkTheme ? Brightness.dark : Brightness.light,
-        //     ),
+        // primaryTextTheme: TextTheme(  isDarkTheme ? whiteColor : Colors.black),
         bottomAppBarTheme:
             BottomAppBarTheme(color: isDarkTheme ? Colors.black : whiteColor)
         // buttonTheme: Theme.of(context)
