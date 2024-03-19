@@ -17,7 +17,7 @@ class ChatDetailsScreen extends StatefulWidget {
 class _ChatDetailsScreenState extends State<ChatDetailsScreen> {
   @override
   Widget build(BuildContext context) {
-    print(widget.chatUserModel.uid);
+    //  print(widget.chatUserModel.uid);
     return Scaffold(
       appBar: _buildAppBar(),
       body: Padding(

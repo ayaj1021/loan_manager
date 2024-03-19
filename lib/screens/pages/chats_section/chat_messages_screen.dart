@@ -12,7 +12,7 @@ class ChatMessagesScreen extends StatelessWidget {
       senderId: '2',
       receiverId: 'gNfEHSQZ5ZUcY6JG5AarK8O0SVw1',
       content: 'Hello',
-      sentTime: DateTime.now(), 
+      sentTime: DateTime.now(),
       messageType: MessageType.text,
     ),
     ChatMessagesModel(
@@ -93,7 +93,7 @@ class ChatMessagesScreen extends StatelessWidget {
       messageType: MessageType.text,
     ),
     ChatMessagesModel(
-      senderId: '2',
+      senderId: "2",
       receiverId: 'f7Tw4FGqBYkEmXWInpv6',
       content: 'See you later',
       sentTime: DateTime.now(),
@@ -105,17 +105,26 @@ class ChatMessagesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     //  print(receiverId == senderId );
     return Expanded(
-      child: ListView.builder(
-        itemCount: messages.length,
-        itemBuilder: (context, index) {
-          final isMe = receiverId != messages[index].senderId;
-          print(isMe);
-          // print(receiverId == messages[index].senderId);
+      child: ListView(
+        children: List.generate(messages.length, (index) {
           return MessageBubble(
-            isMe: isMe,
+            id: messages[index].senderId,
+            //  isMe: isMe,
             chatMessagesModel: messages[index],
           );
-        },
+        }),
+        //itemCount: messages.length,
+        //  itemBuilder: (context, index) {
+        //   final id = receiverId != messages[index].senderId;
+        //  final isMe = receiverId != messages[index].senderId;
+        //  print(isMe);
+        // print(receiverId == messages[index].senderId);
+        //   return MessageBubble(
+        //     id: messages[index].senderId,
+        //     //  isMe: isMe,
+        //     chatMessagesModel: messages[index],
+        //   );
+        // },
       ),
     );
   }
